@@ -6,18 +6,12 @@
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- JSTree -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/themes/default/style.min.css"/>
 
-    <!-- Optional theme -->
+    <!-- Optional bootstrap theme -->
     <link rel="stylesheet" href="doc_resources/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
 
 </head>
 {% macro status(name) -%}
@@ -61,41 +55,48 @@
     <div class="row">
         <div class="col-sm-12">
             <p><a href="doc_resources/img/EthOn_overview.png"><img src="doc_resources/img/EthOn_overview.png"
-                                                                class="img-thumbnail"
-                                                                alt="Simplified EthOn model"/></a><br/>
+                                                                   class="img-thumbnail"
+                                                                   alt="Simplified EthOn model"/></a><br/>
                 This is a simplified illustration of how EthOn models Ethereum.</p>
             <p>
-                More illustrations can be found in the <a href="https://github.com/ConsenSys/EthOn/blob/master/EthOn_illustrations.md">EthOn_illustrations.md</a> file.
+                More illustrations can be found in the <a
+                    href="https://github.com/ConsenSys/EthOn/blob/master/EthOn_illustrations.md">EthOn_illustrations.md</a>
+                file.
             </p>
         </div>
     </div>
 
     <h2>Concept hierarchies</h2>
     <div class="row">
-        <div class="col-sm-4">
+        <div id="concept-hierarchies" class="col-sm-4">
             <!-- Class tree -->
             <h3>Classes <span class="badge">{{ classes|length }}</span></h3>
+            <div id="classes">
+                <ul>
+                    {%- for class in classes_tree recursive %}
+                        <li id="#{{ "li-"+class.slug }}"><a href="#{{ class.slug }}">{{ class.locale }}</a>
+                            {%- if class._children -%}
+                                <ul>{{ loop(class._children) }}</ul>
+                            {%- endif %}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
 
-            <ul>
-                {%- for class in classes_tree recursive %}
-                    <li><a class="label label-primary" href="#{{ class.slug }}">{{ class.locale }}</a>
-                        {%- if class._children -%}
-                            <ul>{{ loop(class._children) }}</ul>
-                        {%- endif %}</li>
-                {%- endfor %}
-            </ul>
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
             <h3>Properties <span class="badge">{{ properties|length }}</span></h3>
-            <ul>
-                {%- for prop in properties_tree recursive %}
-                    <li><a class="label label-default" href="#{{ prop.slug }}">{{ prop.locale }}</a>
-                        {%- if prop._children -%}
-                            <ul>{{ loop(prop._children) }}</ul>
-                        {%- endif %}</li>
-                {%- endfor %}
-            </ul>
+            <div id="properties">
+                <ul>
+                    {%- for prop in properties_tree recursive %}
+                        <li><a class="" href="#{{ prop.slug }}">{{ prop.locale }}</a>
+                            {%- if prop._children -%}
+                                <ul>{{ loop(prop._children) }}</ul>
+                            {%- endif %}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+
         </div>
     </div>
 
@@ -391,6 +392,40 @@
     {% endfor %}
 </div>
 
+<!-- JQuery and plugins -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/jstree.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+<script>
+    $(function () {
+
+        var config = {
+            "core": {
+                "themes": {
+                    "icons": false,
+                    "responsive": true,
+                },
+                "multiple": false,
+                "dblclick_toggle": false,
+                "animation": false,
+            }
+        }
+
+        $('#classes').jstree(config);
+        $('#properties').jstree(config);
+        $('#li-class-ethonconcept').addClass('jstree-open');
+        $("#concept-hierarchies li").on("click", "a",
+            function () {
+                console.log("click: " + this);
+                //document.location = this;
+            }
+        );
+    });
+</script>
 </body>
 </html>
 
