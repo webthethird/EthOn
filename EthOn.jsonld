@@ -1,0 +1,4296 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ns": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "swrl": "http://www.w3.org/2003/11/swrl#",
+    "swrla": "http://swrl.stanford.edu/ontologies/3.3/swrla.owl#",
+    "swrlb": "http://www.w3.org/2003/11/swrlb#",
+    "vann": "http://purl.org/vocab/vann/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "http://ethon.consensys.net/minesFor",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "minesFor",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Node"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "mines for"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Blockchain"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/NetworkObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/AccountConcept",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "AccountConcept"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups EthOn concepts related to Accounts."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Account concept"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      }
+    },
+    {
+      "@id": "_:Nc4e5b649aebb47bdb12075ceb59e068b",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/ValueContractMsg"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:N4400e628a37e4a679b11b07372948516"
+      },
+      "comment": "Value Contract Messages are always directed to an External Account."
+    },
+    {
+      "@id": "http://ethon.consensys.net/accountCode",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "accountCode",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The immutable EVM bytecode of the Contract Account."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account code"
+      },
+      "range": {
+        "@id": "xsd:base64Binary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "_:N32b76bc221134d5bae9f22c489cc6d81",
+      "@type": "owl:Restriction",
+      "owl:onDataRange": {
+        "@id": "xsd:hexBinary"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/address"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "_:Ne1adef0f10bb4501a09bc9bd60d35fe9",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/logData",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "logData",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Log Entry to its data."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/LogEntry"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Log data"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasReceiptsTrie",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:InverseFunctionalProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasReceiptsTrie",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to the Trie that contains the Block's receipt data."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has receipts tree"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockObjectProperty"
+      }
+    },
+    {
+      "@id": "_:N0162b9e01e1942fb81f0242a70dc973d",
+      "@type": "Datatype",
+      "owl:oneOf": {
+        "@list": [
+          "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/cumulativeGasUsed",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "cumulativeGasUsed",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/TxReceipt"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "cumulative gas used"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/TxReceipt",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "TxReceipt",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "TransactionReceipt"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/MessageConcept"
+      }
+    },
+    {
+      "@id": "_:N763979d649e3488786631ef03157db93",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/CallTx"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CreateTx"
+          },
+          {
+            "@id": "http://ethon.consensys.net/ValueTx"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/MessageDataProperty",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Message Data Properties."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/MessageConcept"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasCurrentState",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:InverseFunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasCurrentState",
+      "ns:term_status": "unstable",
+      "comment": "This property relates an EthOn concept to its most current state.",
+      "domain": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "label": "has current State",
+      "range": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/hasState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txIndex",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txIndex",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The position of a Transaction in a Block."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction index"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/AccountStorage",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "AccountStorage"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account's code, but the execution state of the code. The Account's code is stored in the"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Storage"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/AccountConcept"
+        },
+        {
+          "@id": "http://ethon.consensys.net/ModifiedMerklePatriciaTree"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/EthOnDataProperty",
+      "@type": "owl:DatatypeProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all Data Properties specific to EthOn."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Data Property"
+      },
+      "subPropertyOf": {
+        "@id": "owl:topDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockBeneficiaryReward",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockBenficiaryReward",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block beneficiary reward"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/suggestedStringRepresentation",
+      "@type": "owl:AnnotationProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "This property relates an EthOn concept with a suggested string representation. It can be used to give the term a name, e.g. in program code."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnAnnotationProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockCreationTime",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockCreationTime",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "This Block's inception date and time."
+      },
+      "domain": {
+        "@id": "_:N21793e9c1de040bd8df1f13030f0f638"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block creation time"
+      },
+      "range": {
+        "@id": "xsd:dateTime"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/StateTransition",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "StateTransition",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The concept of a transition in a state transition system."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "State Transition"
+      },
+      "seeAlso": {
+        "@id": "https://en.wikipedia.org/wiki/Transition_system"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/StateConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockHeader",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockHeader",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header."
+      },
+      "domain": {
+        "@id": "_:Ncbda2ab437c04c488a51310fe3ed00a1"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block header"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/MessageObjectProperty",
+      "@type": "owl:ObjectProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Message Object Properties."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Message Object Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnObjectProperty"
+      }
+    },
+    {
+      "@id": "_:Nd1574a9f2fcd49b083118e0c00d52e6d",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/from"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "_:N7258d73cd46847858f9b8b3ab36b132d",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/containsTx",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:InverseFunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "containsTx",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to a Transaction included in it. All containsTx relations of a Block comprise the Block's transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a Transaction can only be included in one Block."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "contains Transaction"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockObjectProperty"
+      }
+    },
+    {
+      "@id": "_:Nfcdf70166c6d43c7a83282be82645f83",
+      "@type": "owl:Axiom",
+      "http://ethon.consensys.net/DASE_RULE": "YP-2.1___Block(?x)->StateTransition(?x)___A valid State Transition is one which comes about through a Block.",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "owl:annotatedTarget": {
+        "@id": "http://ethon.consensys.net/StateTransition"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/StateObjectProperty",
+      "@type": "owl:ObjectProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn State Object Properties."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn State Object Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnObjectProperty"
+      }
+    },
+    {
+      "@id": "_:N3cbe3b008e084de28c65da62993d14f0",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/logTopicData",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "logTopicData",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Log Topic to the 32 bytes of data it contains."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/LogTopic"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Log Topic data"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:Ne5d33a53582941f9a804f4fe5e3c3e5f",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "owl:hasKey"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "owl:annotatedTarget": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/blockHash"
+          }
+        ]
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "The blockHash is the unique identifier of a Block. It is generated via the Keccak 256-bit hash of its Block header."
+      }
+    },
+    {
+      "@id": "_:Ne708070b68b64f6391d32e0d635395d3",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:Nb0386332877144fbba86fc25463e48b3"
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "An Account must have at least 1 state."
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/spawnsBlock",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "spawnsBlock",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority)."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Node"
+      },
+      "label": "spawns Block",
+      "range": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/NetworkObjectProperty"
+      }
+    },
+    {
+      "@id": "_:Na288544a669144bca4ae419a44e0f50e",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/CreateTx"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:Nd9c910a409364e22ae5b3fe0dd9c6b7b"
+      },
+      "comment": "All create transactions are directed toward a Contract Account they create."
+    },
+    {
+      "@id": "http://ethon.consensys.net/knowsOfUncle",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "knowsOfUncle",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to a known Uncle."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "knows of Uncle"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockObjectProperty"
+      }
+    },
+    {
+      "@id": "_:N4fa75ba6dd034ac095883c08a6c52341",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/AccountState",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "AccountState"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account State"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/AccountConcept"
+        },
+        {
+          "@id": "http://ethon.consensys.net/State"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/Blockchain",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "Blockchain",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An Ethereum Blockchain is a distributed database that maintains a continuously-growing list of records called *Blocks* secured from tampering and revision. Each Block contains a timestamp and a link to a previous Block in a Merkle tree structure."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Ethereum Blockchain"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/NetworkConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockSize",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockSize",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The size of the the Block header in RLP format in bytes."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block size"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "seeAlso": {
+        "@id": "https://github.com/ethereum/wiki/wiki/RLP"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/clientVersion",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "clientVersion",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4)."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Node"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "runs client"
+      },
+      "range": {
+        "@id": "xsd:string"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/NetworkDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/accountNonce",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "accountNonce",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of transactions sent from this Account or, in the case of Accounts with associated code, the number of Contract-creations made by this Account."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account nonce"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/accountPublicKey",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "accountPublicKey",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The public key of an ExternalAccount."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ExternalAccount"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account public key"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockNonce",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockNonce",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this Block."
+      },
+      "domain": {
+        "@id": "_:Nfa2f7c25ef234eedba8b370987bf8f85"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block nonce"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "_:N56a7b7437ad4433d892cc5f23dd4db41",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/CallContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CreateContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/ValueContractMsg"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasOriginatorTx",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:InverseFunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasOriginatorTx",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Contract Message to the Transaction it originated from."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has Originator Transaction"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "_:Nb43b1d88fb264f40a9a1afdf45616c04",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "owl:hasKey"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "owl:annotatedTarget": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/address"
+          }
+        ]
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "An Address is the unique 160-bit identifier of an Account."
+      }
+    },
+    {
+      "@id": "_:Na1aff4f2a1234460a2c8b521cdde2683",
+      "@type": "owl:Restriction",
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/createsPostBlockState"
+      },
+      "owl:someValuesFrom": {
+        "@id": "http://ethon.consensys.net/PostBlockState"
+      }
+    },
+    {
+      "@id": "_:Nf4b26776240b43cf92285afc79345909",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgGasUsed",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgGasUsed",
+      "ns:term_status": "unstable",
+      "owl:propertyDisjointWith": {
+        "@id": "http://ethon.consensys.net/txGasUsed"
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "The amount of gas that was used for processing this ContractMsg."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Msg gas used"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Tx",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "Tx",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction"
+      },
+      "subClassOf": [
+        {
+          "@id": "_:N4626f3b1b5d1481e88fd5e5ea37c687d"
+        },
+        {
+          "@id": "http://ethon.consensys.net/Msg"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/createsState",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "createsState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Transition to the State it creates."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/StateTransition"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "creates State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/State"
+      },
+      "subPropertyOf": [
+        {
+          "@id": "http://ethon.consensys.net/MessageObjectProperty"
+        },
+        {
+          "@id": "http://ethon.consensys.net/StateObjectProperty"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/CreateContractMsg",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "CreateContractMsg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Create Contract Message"
+      },
+      "subClassOf": [
+        {
+          "@id": "_:N1359a7ae86514ffcb7103b9c86dc3361"
+        },
+        {
+          "@id": "http://ethon.consensys.net/ContractMsg"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/EthOnObjectProperty",
+      "@type": "owl:ObjectProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Object Properties"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Object Property"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/stateRoot",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "stateRoot",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Keccak 256-bit hash of the root node of the state trie that represents this state."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/State"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "State root"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/StateDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasAccountStorage",
+      "@type": [
+        "owl:InverseFunctionalProperty",
+        "owl:FunctionalProperty",
+        "owl:ObjectProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasAccountStorage",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has Account Storage"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/AccountStorage"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ContractAccount",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "ContractAccount"
+      },
+      "ns:term_status": "unstable",
+      "owl:disjointWith": {
+        "@id": "http://ethon.consensys.net/ExternalAccount"
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated Account; the Account will have non-empty associated EVM Code. Incorporated only as the Storage State of that Account."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Contract Account"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Account"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/uncleBeneficiaryReward",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "uncleBenficiaryReward",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Uncle"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Uncle beneficiary reward"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "_:N87f9dfc0e859472f8dd5dcd4d22fc6af",
+      "@type": "owl:Axiom",
+      "http://ethon.consensys.net/DASE_RULE": "YP-p4.1___Account(?x)^AccountState(?y)^hasState(?x,?y)^accountCodeHash(?y,\"c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\")->ExternalAccount(?x)___If the codeHash field of an Account is the Keccac-256 hash of the empty string, then the node represents an External Account.",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "_:Nbd6432104f4e4c4bade16003198029a2"
+      },
+      "owl:annotatedTarget": {
+        "@id": "http://ethon.consensys.net/ExternalAccount"
+      }
+    },
+    {
+      "@id": "_:N00254ee30f22493fb6cda5ed3e82937c",
+      "@type": "owl:Axiom",
+      "http://ethon.consensys.net/DASE_RULE": "YP-1.2___Tx(?x)->Msg(?x)___A valid State Transition is one which comes about through a Transaction.",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "owl:annotatedTarget": {
+        "@id": "http://ethon.consensys.net/Msg"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/transactionsRoot",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockTransactionsRoot",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/TxTrie"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transactions root"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N150ccf451d274f16a98399275c29481c",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/containsTx"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "0"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/accountBalance",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "accountBalance",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of Wei owned by an Account at a given Account state."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account balance"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/FullNode",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "FullNode",
+      "ns:term_status": "unstable",
+      "owl:disjointWith": {
+        "@id": "http://ethon.consensys.net/LightNode"
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Ethereum Full Node"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Node"
+      }
+    },
+    {
+      "@id": "_:Nd3ce4cc36a2549148935b12533e189aa",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/from"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/AccountDataProperty",
+      "@type": "owl:DatatypeProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all Data Properties that are specific to an Account."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/AccountConcept"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Account Data Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnDataProperty"
+      }
+    },
+    {
+      "@id": "_:N54d75bac12ff4ff38ba784ba75c4d1ba",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/BlockObjectProperty",
+      "@type": "owl:ObjectProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Block Object Properties"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Block Object Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txV",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txV",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36"
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction v-value"
+      },
+      "range": {
+        "@id": "xsd:byte"
+      },
+      "seeAlso": {
+        "@id": "https://github.com/ethereum/EIPs/issues/155"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasBeneficiary",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:ObjectProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasBeneficiary",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to the Account to which all fees collected from the successful mining of this Block are transferred."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has beneficiary"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgRefundBalance",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgRefundBalance",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/SelfdestructContractMsg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "contract balance in Wei"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N9578f0586b9c4d0d943b8439ae886444",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txR",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txR",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The txR value is a Byte array of length 32."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction r-value"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txS",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txS",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction s-value"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/PostTxState",
+      "@type": "owl:Class",
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/PostMsgState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/logTopicIndex",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "logTopicIndex",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/LogTopic"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Log Topic index"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockMixHash",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockMixHash",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block."
+      },
+      "domain": {
+        "@id": "_:N4fa75ba6dd034ac095883c08a6c52341"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Mix hash"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/WorldState",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "State"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "World State"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/State"
+        },
+        {
+          "@id": "http://ethon.consensys.net/ModifiedMerklePatriciaTree"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/ContractMsg",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "ContractMsg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Contract Message"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/Msg"
+        },
+        {
+          "@id": "_:Nd3ce4cc36a2549148935b12533e189aa"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/createsPostMsgState",
+      "@type": "owl:ObjectProperty",
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/createsState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ProtocolAccount",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "PrefundedAccount"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Protocol Account"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Account"
+      }
+    },
+    {
+      "@id": "foaf:Agent",
+      "@type": "owl:Class",
+      "isDefinedBy": {
+        "@id": "foaf:"
+      }
+    },
+    {
+      "@id": "_:Ne59bcf056dcc4bd594ba04914597f53d",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:Naedbe6bd538b4a7ca2ffebd8424dbb33",
+      "@type": "owl:Axiom",
+      "http://ethon.consensys.net/DASE_RULE": "YP-1.1___Block(?b)^hasPostBlockState(?b,?s)^PostBlockState(?s)->StateTransition(?b)___A valid Message State Transition is one which comes about through a Message.",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "_:N17fa6d5f2f8c4e28ac28f629274687ba"
+      },
+      "owl:annotatedTarget": {
+        "@id": "http://ethon.consensys.net/StateTransition"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockGasLimit",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockGasLimit",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the current limit of gas expenditure per Block."
+      },
+      "domain": {
+        "@id": "_:Na0b96f4fd3b04244a52a5091add14863"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Gas limit"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/receiptsRoot",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockReceiptsRoot",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the Block."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ReceiptsTrie"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Receipts root"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/NetworkDataProperty",
+      "@type": "owl:DatatypeProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Network Data Properties."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Network Data Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnDataProperty"
+      }
+    },
+    {
+      "@id": "_:N17fa6d5f2f8c4e28ac28f629274687ba",
+      "@type": "owl:Class",
+      "owl:intersectionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "_:Na1aff4f2a1234460a2c8b521cdde2683"
+          }
+        ]
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/StateTransition"
+      }
+    },
+    {
+      "@id": "_:Ne0a7cc10c4a54beaa793927f2fd05b76",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/CallTx"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:N54d75bac12ff4ff38ba784ba75c4d1ba"
+      },
+      "comment": "Call transactions are directed towards a Contract Account."
+    },
+    {
+      "@id": "_:Ncf88534a48da4786bfab266a8a7f781d",
+      "@type": "swrl:AtomList",
+      "rdf:first": {
+        "@id": "_:N4e1f86f7a1a741e58ae6fd3c180c2cb2"
+      },
+      "rdf:rest": {
+        "@id": "_:Naa3d2527ddb345fd92cf236bfd25128c"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ValueContractMsg",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "ValueContractMsg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called \"value\" Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Value Contract Message"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/ContractMsg"
+        },
+        {
+          "@id": "_:N3069fc0676db43a1978ea1851f27b43a"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/accountBalancePrefunded",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "accountBalancePrefunded",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ProtocolAccount"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account balance prefunded"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasParentBlock",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:IrreflexiveProperty",
+        "owl:AsymmetricProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasParentBlock",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has parent Block"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockObjectProperty"
+      }
+    },
+    {
+      "@id": "_:Na48ef7188ca4455db65790efa8d16cb3",
+      "@type": "owl:Class",
+      "owl:intersectionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/AccountState"
+          },
+          {
+            "@id": "_:N7fc4e14bc71d444ea7f30c0abd18fd1c"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ProtocolState",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "ProtocolState"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "ProtocolState"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      }
+    },
+    {
+      "@id": "_:N069720b4cb9241989783f555825e7001",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/ReceiptsTrie"
+          },
+          {
+            "@id": "http://ethon.consensys.net/TxTrie"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/State",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "State",
+      "ns:term_status": "unstable",
+      "owl:disjointWith": {
+        "@id": "http://ethon.consensys.net/StateTransition"
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "The concept of a state in a generic state transition system."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "State"
+      },
+      "seeAlso": [
+        {
+          "@id": "https://en.wikipedia.org/wiki/Transition_system"
+        },
+        {
+          "@id": "https://en.wikipedia.org/wiki/State_(computer_science)"
+        }
+      ],
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/StateConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/triggersMsg",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "triggersMsg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph."
+      },
+      "domain": {
+        "@id": "_:Nfd7354259d454bed8b5919436051ae5d"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "triggers Contract Message"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasState",
+      "@type": [
+        "owl:InverseFunctionalProperty",
+        "owl:ObjectProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has state"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/StateObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgInit",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgInit",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure."
+      },
+      "domain": {
+        "@id": "_:Nd62e1e02d3634e3bbabd2a3fe1b70691"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message init code"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/msgPayload"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/StateDataProperty",
+      "@type": "owl:DatatypeProperty",
+      "domain": {
+        "@id": "http://ethon.consensys.net/StateConcept"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/refunds",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "refunds",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "refunds"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/to"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/x",
+      "@type": "swrl:Variable"
+    },
+    {
+      "@id": "http://ethon.consensys.net/y",
+      "@type": "swrl:Variable"
+    },
+    {
+      "@id": "_:Nd62e1e02d3634e3bbabd2a3fe1b70691",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/CreateContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CreateTx"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Network",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "Network",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Ethereum Network"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/NetworkConcept"
+      }
+    },
+    {
+      "@id": "_:Nc2147116a9fe4697a9e4e802fdfad9cf",
+      "@type": "swrl:ClassAtom",
+      "swrl:argument1": {
+        "@id": "http://ethon.consensys.net/x"
+      },
+      "swrl:classPredicate": {
+        "@id": "http://ethon.consensys.net/Block"
+      }
+    },
+    {
+      "@id": "_:Nbbe775ea82f141e39f4c9fe9d5f195df",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgData",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgData",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An unlimited size byte array specifying the input data of the call."
+      },
+      "domain": {
+        "@id": "_:N0af54b1b6b294501b19d02abb5c69aec"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "call data"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/msgPayload"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/PostBlockState",
+      "@type": "owl:Class",
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/PostTxState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/EthOnAnnotationProperty",
+      "@type": "owl:AnnotationProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Superclass of all EthOn specific annotation properties."
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasTransition",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasTransition",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a State to a Transition (i.e. a Message) that creates a new State."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has Transition"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/StateObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockHash",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockHash",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Keccak 256-bit hash of the Block's header, in its entierty."
+      },
+      "domain": {
+        "@id": "_:N3188e18607e044a7ac88acab8056cf0e"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block hash"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Node",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "Node",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A participan in an Ethereum Network."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Node"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/NetworkConcept"
+      }
+    },
+    {
+      "@id": "_:N90b0315f9e564039a7fb0335596199f6",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockLogsBloom",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockLogsBloom",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list."
+      },
+      "domain": {
+        "@id": "_:Nbbe775ea82f141e39f4c9fe9d5f195df"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Logs bloom filter"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Msg",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "Msg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/MessageConcept"
+        },
+        {
+          "@id": "http://ethon.consensys.net/StateTransition"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/BlockConcept",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "BlockConcept"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups EthOn concepts related to Blocks."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Block concept"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/to",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "toAccount",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Message with the Account it is sent to."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "to"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/accountCodeHash",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "accountCodeHash",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The immutable Keccak-256 hash of the EVM code of an Account."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account code hash"
+      },
+      "range": {
+        "@id": "xsd:base64Binary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "_:Naa3d2527ddb345fd92cf236bfd25128c",
+      "@type": "swrl:AtomList",
+      "rdf:first": {
+        "@id": "_:N1b35d6513f754c5ea71e1ac273c807b1"
+      },
+      "rdf:rest": {
+        "@id": "_:Nd2dd12275d5343ae848137c913653a0d"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasLogEntry",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasLogEntry",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has Log Entry"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/LogEntry"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/TxTrie",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "TxTrie",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transactions Trie"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/ModifiedMerklePatriciaTree"
+        },
+        {
+          "@id": "http://ethon.consensys.net/MessageConcept"
+        },
+        {
+          "@id": "http://ethon.consensys.net/BlockConcept"
+        }
+      ]
+    },
+    {
+      "@id": "_:Nb0386332877144fbba86fc25463e48b3",
+      "@type": "owl:Restriction",
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/hasState"
+      },
+      "owl:someValuesFrom": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/SelfdestructContractMsg",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "SelfdestructContractMsg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Selfdestruct Contract Message is a Contract Message that deletes the originating contract and refunds its balance to the receiver of the Message."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Selfdestruct Contract Message"
+      },
+      "seeAlso": {
+        "@id": "https://github.com/ethereum/EIPs/blob/master/EIPS/eip-6.md"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/MessageConcept",
+      "@type": "owl:Class",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups EthOn concepts related to Messages."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Message concept"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      }
+    },
+    {
+      "@id": "_:N2edbfcce8bed40aa9aab096beee93e03",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/creates"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ReceiptsTrie",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "ReceiptsTrie",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A trie structure that stores transaction receipts. Each Block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the Block."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Receipts Trie"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/ModifiedMerklePatriciaTree"
+        },
+        {
+          "@id": "http://ethon.consensys.net/BlockConcept"
+        },
+        {
+          "@id": "http://ethon.consensys.net/MessageConcept"
+        }
+      ]
+    },
+    {
+      "@id": "_:N5bbe5b2d8d73466e90208f43927b4e6f",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasFork",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:TransitiveProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasFork",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Protocol variant to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is assymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Blockchain"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has Fork"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Blockchain"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/NetworkObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/partOf",
+      "@type": [
+        "owl:TransitiveProperty",
+        "owl:ObjectProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "partOf",
+      "ns:term_status": "testing",
+      "comment": {
+        "@language": "en",
+        "@value": "This is a general relation to express part of relationships. The classic study of parts and wholes, mereology, has three axioms: 1. the part-of relation is Transitive - \"parts of parts are parts of the whole\" - If A is part of B and B is part of C, then A is part of C Reflexive - \"Everything is part of itself\" - A is part of A Antisymmetric - \"Nothing is a part of its parts\" - if A is part of B and A != B then B is not part of A."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "part of"
+      },
+      "seeAlso": {
+        "@id": "https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnObjectProperty"
+      }
+    },
+    {
+      "@id": "swrla:isRuleEnabled",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "_:Nfd7354259d454bed8b5919436051ae5d",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/CallContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CallTx"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CreateContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CreateTx"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:Nc3d5ad7c3da14f2b96f9c09778035e33",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:N7aeb8e01aadd40b083873c1fa3c9b527"
+      },
+      "comment": "All transactions originate from an External Account."
+    },
+    {
+      "@id": "http://ethon.consensys.net/address",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "address",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A 160-bit identifier for Accounts."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Address"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/storageRoot",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "storageRoot",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/AccountStorage"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Storage root"
+      },
+      "range": {
+        "@id": "xsd:base64Binary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Block",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "Block"
+      },
+      "ns:term_status": "unstable",
+      "owl:hasKey": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/blockHash"
+          }
+        ]
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks (\"mine Blocks\") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/StateTransition"
+        },
+        {
+          "@id": "http://ethon.consensys.net/BlockConcept"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockExtraData",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockExtraData",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An arbitrary byte array containing data relevant to this Block. This must be 32 bytes or fewer."
+      },
+      "domain": {
+        "@id": "_:N3cbe3b008e084de28c65da62993d14f0"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block extra data"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Account",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "Account"
+      },
+      "ns:term_status": "unstable",
+      "owl:hasKey": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/address"
+          }
+        ]
+      },
+      "comment": {
+        "@language": "en",
+        "@value": "Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Account"
+      },
+      "subClassOf": [
+        {
+          "@id": "_:Ne627f7b29a87438f8b6e49cb31f92a13"
+        },
+        {
+          "@id": "http://ethon.consensys.net/AccountConcept"
+        },
+        {
+          "@id": "_:N32b76bc221134d5bae9f22c489cc6d81"
+        }
+      ]
+    },
+    {
+      "@id": "_:Nb8a5928c83b5435f842b9e10f62fb404",
+      "@type": "swrl:IndividualPropertyAtom",
+      "swrl:argument1": {
+        "@id": "http://ethon.consensys.net/y"
+      },
+      "swrl:argument2": {
+        "@id": "http://ethon.consensys.net/x"
+      },
+      "swrl:propertyPredicate": {
+        "@id": "http://ethon.consensys.net/partOf"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/StateConcept",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "StateConcept",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups EthOn concepts related to state."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn State Concept"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/BlockDataProperty",
+      "@type": "owl:DatatypeProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/BlockConcept"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Block Data Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/conformsTo",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "conformsTo",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      },
+      "label": "conforms to",
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/NetworkObjectProperty"
+      }
+    },
+    {
+      "@id": "_:N74479d6c68b048b28564fcb3fc643963",
+      "@type": "owl:Axiom",
+      "http://ethon.consensys.net/DASE_RULE": "YP-3.1___hasTxTrie(?x,?y)->Block(?x)___Anything that has a TxTrie is a Block.",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "_:N794528b9e6f4492f86e66366845bc7a2"
+      },
+      "owl:annotatedTarget": {
+        "@id": "http://ethon.consensys.net/Block"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/from",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "fromAccount",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Message with the Account it originates from."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "from"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgOutput",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgOutput",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The reulting output data from a CallContractMsg."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/CallContractMsg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message output"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/LogEntry",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "LogEntry",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A LogEntry is the result of an Event in a smart contract, emitted during creation or execution of a ContracAccount's code. It is related to the TxReceipt it was created in, the ContractAccount that had the Event, a series of 32-bytes Log Topics and a number of bytes of data."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Log Entry"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/MessageConcept"
+      }
+    },
+    {
+      "@id": "_:Nee143de88b49431f9f479dd134c0fc5d",
+      "@type": "owl:Restriction",
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/hasState"
+      },
+      "owl:someValuesFrom": {
+        "@id": "_:Na48ef7188ca4455db65790efa8d16cb3"
+      }
+    },
+    {
+      "@id": "_:N895e212f080d4424a030746c95f9130d",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/ValueTx"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:N5bbe5b2d8d73466e90208f43927b4e6f"
+      },
+      "comment": "Value transactions are directed to External Accounts."
+    },
+    {
+      "@id": "_:Na0b96f4fd3b04244a52a5091add14863",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/CallContractMsg",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "CallContractMsg",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Call Contract Message is a Contract Message that calls a function in another Contract."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Call Contract Message"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/ContractMsg"
+        },
+        {
+          "@id": "_:N609195f9b645471382371cb93a4e74f2"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/NetworkConcept",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "NetworkConcept",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Network concepts."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Network Concept."
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      }
+    },
+    {
+      "@id": "_:Nd2dd12275d5343ae848137c913653a0d",
+      "@type": "swrl:AtomList",
+      "rdf:first": {
+        "@id": "_:Nc2147116a9fe4697a9e4e802fdfad9cf"
+      },
+      "rdf:rest": {
+        "@list": []
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/Uncle",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "Uncle"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Uncle"
+      },
+      "subClassOf": [
+        {
+          "@id": "_:N150ccf451d274f16a98399275c29481c"
+        },
+        {
+          "@id": "http://ethon.consensys.net/BlockConcept"
+        }
+      ]
+    },
+    {
+      "@id": "_:N1b35d6513f754c5ea71e1ac273c807b1",
+      "@type": "swrl:ClassAtom",
+      "swrl:argument1": {
+        "@id": "http://ethon.consensys.net/y"
+      },
+      "swrl:classPredicate": {
+        "@id": "http://ethon.consensys.net/Tx"
+      }
+    },
+    {
+      "@id": "_:N3188e18607e044a7ac88acab8056cf0e",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:N4400e628a37e4a679b11b07372948516",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/controlsAccount",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "controlsAccount",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ExternalActor"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "controls Account"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/AccountObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgGasPrice",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgGasPrice",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message gas price"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:Nc37067c0c8fb4b3082722cf09882c0c2",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:Nd1574a9f2fcd49b083118e0c00d52e6d"
+      },
+      "comment": "Contract Messages originate from Contract Accounts."
+    },
+    {
+      "@id": "http://ethon.consensys.net/PostMsgState",
+      "@type": "owl:Class",
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/WorldState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txHash",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txHash",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Keccak 256-bit hash of the Transaction"
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Tx hash"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/value",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "value",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "value in Wei"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasTxTrie",
+      "@type": [
+        "owl:InverseFunctionalProperty",
+        "owl:FunctionalProperty",
+        "owl:ObjectProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasTxTrie",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to the trie that contains the data of the transactions contained in the Block."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has transactions trie"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgCallDepth",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgCallDepth",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message call depth"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N1e8696ee748f4d87bb613049be546665",
+      "@type": "swrl:Imp",
+      "comment": "The Block level state transition function is the collection of all Transaction level state transition functions.",
+      "label": "YP-4.1",
+      "swrl:body": {
+        "@id": "_:Ncf88534a48da4786bfab266a8a7f781d"
+      },
+      "swrl:head": {
+        "@id": "_:N50a2bb008c4645a5ac0b17d046bf295b"
+      },
+      "swrla:isRuleEnabled": true
+    },
+    {
+      "@id": "_:N7fc4e14bc71d444ea7f30c0abd18fd1c",
+      "@type": "owl:Restriction",
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/accountCodeHash"
+      },
+      "owl:someValuesFrom": {
+        "@id": "_:N0162b9e01e1942fb81f0242a70dc973d"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/nextState",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "nextState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a State to the following State. In EthOn the state transition system has no branches."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/WorldState"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "next State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/WorldState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/StateObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgGasLimit",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgGasLimit",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message gas limit"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/creates",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "creates",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a create transaction to the ContractAccount it creates."
+      },
+      "domain": {
+        "@id": "_:Ne697d83f9a53420b94b0a18901a43364"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "creates"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/to"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/CallTx",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "CallTx",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Call Transaction"
+      },
+      "subClassOf": [
+        {
+          "@id": "http://ethon.consensys.net/Tx"
+        },
+        {
+          "@id": "_:Nf4b26776240b43cf92285afc79345909"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/nextBlockState",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "nextBlockState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Post Block State to the following Post Block State."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/PostBlockState"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "next Post Block State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/PostBlockState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/nextTxState"
+      }
+    },
+    {
+      "@id": "_:N609195f9b645471382371cb93a4e74f2",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "_:N4e1f86f7a1a741e58ae6fd3c180c2cb2",
+      "@type": "swrl:IndividualPropertyAtom",
+      "swrl:argument1": {
+        "@id": "http://ethon.consensys.net/x"
+      },
+      "swrl:argument2": {
+        "@id": "http://ethon.consensys.net/y"
+      },
+      "swrl:propertyPredicate": {
+        "@id": "http://ethon.consensys.net/containsTx"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/number",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "number",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero."
+      },
+      "domain": {
+        "@id": "_:Ne59bcf056dcc4bd594ba04914597f53d"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block number"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txLogsBloom",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txLogsBloom",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Transaction Receipt to the Bloom filter of its Log Entries."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/TxReceipt"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction Logs Bloom filter"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N21793e9c1de040bd8df1f13030f0f638",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:Ncbda2ab437c04c488a51310fe3ed00a1",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:N556ae83251fe4c5294b8121e3686fdcc",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/CallContractMsg"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:N90b0315f9e564039a7fb0335596199f6"
+      },
+      "comment": "Call Contract Accounts call functions in other Contract Accounts."
+    },
+    {
+      "@id": "_:Ne627f7b29a87438f8b6e49cb31f92a13",
+      "@type": "owl:Restriction",
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/hasState"
+      },
+      "owl:someValuesFrom": {
+        "@id": "http://ethon.consensys.net/AccountState"
+      }
+    },
+    {
+      "@id": "_:N0af54b1b6b294501b19d02abb5c69aec",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/CallContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CallTx"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasLogTopic",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasLogTopic",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Log Entry to a Log Topic."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/LogEntry"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has Log Topic"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/LogTopic"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockGasUsed",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockGasUsed",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the total gas used in transactions in this Block."
+      },
+      "domain": {
+        "@id": "_:N9578f0586b9c4d0d943b8439ae886444"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Gas used"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "_:N794528b9e6f4492f86e66366845bc7a2",
+      "@type": "owl:Restriction",
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/hasTxTrie"
+      },
+      "owl:someValuesFrom": {
+        "@id": "owl:Thing"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Block"
+      }
+    },
+    {
+      "@id": "_:N4626f3b1b5d1481e88fd5e5ea37c687d",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ExternalAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/from"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/startBlockNumber",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "startBlockNumber",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The Block number of the first block in a new Blockchain after a hard fork."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Blockchain"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "start Block number"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/NetworkDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/",
+      "@type": "owl:Ontology",
+      "dc:contributor": [
+        "Joseph Chow",
+        "Herman Junge",
+        "Casey Detrio",
+        "Shahan Khatchadourian",
+        "Stefano Bertolo",
+        "Alex Beregszazi",
+        "Maurycy Pietrzak",
+        "Marian Oancea"
+      ],
+      "dc:creator": "Johannes Pfeffer",
+      "dc:title": "EthOn - An Ethereum Ontology",
+      "ns:term_status": "testing",
+      "owl:imports": {
+        "@id": "http://www.w3.org/2003/06/sw-vocab-status/ns"
+      },
+      "owl:versionIRI": {
+        "@id": "http://ethon.consensys.net/0/"
+      },
+      "owl:versionInfo": "0.2",
+      "comment": {
+        "@language": "en",
+        "@value": "The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language. It is closely aligned with Gavin Wood's Ethereum yellow paper."
+      },
+      "seeAlso": [
+        {
+          "@id": "https://github.com/ethereum/yellowpaper"
+        },
+        {
+          "@id": "https://github.com/ethereum/wiki/wiki/White-Paper"
+        },
+        {
+          "@id": "https://github.com/ConsenSys/EthOn"
+        }
+      ],
+      "vann:preferredNamespacePrefix": "ethon"
+    },
+    {
+      "@id": "http://ethon.consensys.net/nextMsgState",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "nextMsgState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Post Message State to the following Post Message State."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/PostMsgState"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "next Post Message State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/PostMsgState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/nextState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txNonce",
+      "@type": "owl:DatatypeProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txNonce",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value equal to the number of transactions sent by the sender."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Transaction nonce"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N787751852ce34bd682273f25213f3b1e",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/creates"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/GenesisBlock",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "GenesisBlock",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Genesis Block"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Block"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/DASE_RULE",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "http://ethon.consensys.net/hasReceipt",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "hasTransactionReceipt",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a transaction to its receipt."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "has transaction receipt"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/TxReceipt"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/txGasUsed",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "txGasUsed",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Tx"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Tx gas used"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:Nd9c910a409364e22ae5b3fe0dd9c6b7b",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/creates"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/createsPostBlockState",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:InverseFunctionalProperty",
+        "owl:ObjectProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "createsPostBlockState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Block to the global state of the system after all Transactions in the Block have been executed."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Block"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "creates post Block execution State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/WorldState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/createsState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/CreateTx",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "CreateTx",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A type of Transaction that results in creation of a new Contract Account."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Create Transaction"
+      },
+      "subClassOf": [
+        {
+          "@id": "_:N787751852ce34bd682273f25213f3b1e"
+        },
+        {
+          "@id": "http://ethon.consensys.net/Tx"
+        }
+      ]
+    },
+    {
+      "@id": "_:Nee40d0e45c044da3a134ba75fe1fa681",
+      "@type": "owl:Axiom",
+      "http://ethon.consensys.net/DASE_RULE": "YP-1.1___Msg(?x)->StateTransition(?x)___A valid State Transition is one which comes about through a Message.",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "owl:annotatedTarget": {
+        "@id": "http://ethon.consensys.net/StateTransition"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/NetworkObjectProperty",
+      "@type": "owl:ObjectProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Network Object Properties."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Network Object Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnObjectProperty"
+      }
+    },
+    {
+      "@id": "_:Nbd6432104f4e4c4bade16003198029a2",
+      "@type": "owl:Class",
+      "owl:intersectionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Account"
+          },
+          {
+            "@id": "_:Nee143de88b49431f9f479dd134c0fc5d"
+          }
+        ]
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/ExternalAccount"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/logIndex",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "logIndex",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/TxReceipt"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Log index"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "ModifiedMerklePatriciaTree"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Merkle Patricia trees provide a cryptographically authenticated data structure that can be used to store all (key, value) bindings, although for the scope of this paper we are restricting keys and values to strings (to remove this restriction, just use any serialization format for other data types). They are fully deterministic, meaning that a Patricia tree with the same (key,value) bindings is guaranteed to be exactly the same down to the last byte and therefore have the same root hash, provide the holy grail of O(log(n)) efficiency for inserts, lookups and deletes, and are much easier to understand and code than more complex comparison-based alternatives like red-black trees."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Merkle Patricia Tree"
+      },
+      "seeAlso": {
+        "@id": "https://github.com/ethereum/wiki/wiki/Patricia-Tree"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/EthOnConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/blockDifficulty",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "blockDifficulty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A scalar value corresponding to the difficulty level of this Block. This can be calculated from the previous Block's difficulty level and the timestamp."
+      },
+      "domain": {
+        "@id": "_:Ne1adef0f10bb4501a09bc9bd60d35fe9"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Block difficulty"
+      },
+      "range": {
+        "@id": "xsd:integer"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/BlockDataProperty"
+      }
+    },
+    {
+      "@id": "_:Ne697d83f9a53420b94b0a18901a43364",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/CreateContractMsg"
+          },
+          {
+            "@id": "http://ethon.consensys.net/CreateTx"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:N3069fc0676db43a1978ea1851f27b43a",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/to"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/LogTopic",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "LogTopic",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Log Topic"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/MessageConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/nextTxState",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "nextTxState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Post Transaction State to the following Post Transaction State."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/PostTxState"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "next Post Transaction State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/PostTxState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/nextMsgState"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ExternalActor",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "ExternalActor"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "External Actor"
+      },
+      "subClassOf": [
+        {
+          "@id": "foaf:Agent"
+        },
+        {
+          "@id": "http://ethon.consensys.net/AccountConcept"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/ProtocollVariant",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "EthereumProtocolVariant",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Ethereum Protocol Variant"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/NetworkConcept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgErrorString",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgErrorString",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message error string"
+      },
+      "range": {
+        "@id": "xsd:string"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N7aeb8e01aadd40b083873c1fa3c9b527",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ExternalAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/from"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/createsPostTxState",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "createsPostTxState",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/TxReceipt"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "creates post Transaction execution State"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/WorldState"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/createsState"
+      }
+    },
+    {
+      "@id": "_:N8e78bff538ee48e29d798258b5b3e1a4",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Blockchain"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Network"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Node"
+          },
+          {
+            "@id": "http://ethon.consensys.net/ProtocollVariant"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/AccountObjectProperty",
+      "@type": "owl:ObjectProperty",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn Account Object Properties"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Account Object Property"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/EthOnObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/ValueTx",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "ValueTx",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called \"value\" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Value Transaction"
+      },
+      "subClassOf": [
+        {
+          "@id": "_:N7258d73cd46847858f9b8b3ab36b132d"
+        },
+        {
+          "@id": "http://ethon.consensys.net/Tx"
+        }
+      ]
+    },
+    {
+      "@id": "http://ethon.consensys.net/ExternalAccount",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "ExternalAccount"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An Account owned by an External Actor."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Externally controlled Account"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Account"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/EthOnConcept",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": {
+        "@language": "en",
+        "@value": "EthOnConcept"
+      },
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Groups all EthOn concepts."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "EthOn Concept"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/LightNode",
+      "@type": "owl:Class",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "LightNode",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A light node is a participant in an Ethereum Network that does not completely do any of the following: store the complete Blockchain, store the complete world state, engage in mining."
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Ethereum Light Node"
+      },
+      "subClassOf": {
+        "@id": "http://ethon.consensys.net/Node"
+      }
+    },
+    {
+      "@id": "_:Nfa2f7c25ef234eedba8b370987bf8f85",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "http://ethon.consensys.net/Block"
+          },
+          {
+            "@id": "http://ethon.consensys.net/Uncle"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:N19e4dc6da03642449150723f1414f213",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "subClassOf"
+      },
+      "owl:annotatedSource": {
+        "@id": "http://ethon.consensys.net/CreateContractMsg"
+      },
+      "owl:annotatedTarget": {
+        "@id": "_:N2edbfcce8bed40aa9aab096beee93e03"
+      },
+      "comment": "Create Contract Messages create Contract Accounts."
+    },
+    {
+      "@id": "_:N1359a7ae86514ffcb7103b9c86dc3361",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "http://ethon.consensys.net/ContractAccount"
+      },
+      "owl:onProperty": {
+        "@id": "http://ethon.consensys.net/creates"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgPayload",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgPayload",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "An unlimited size byte array specifying the data payload of the Message."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/Msg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message payload"
+      },
+      "range": {
+        "@id": "xsd:hexBinary"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/loggedBy",
+      "@type": "owl:ObjectProperty",
+      "http://ethon.consensys.net/suggestedStringRepresentation": "loggedBy",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "Relates a Log Entry to its logger's Account."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/LogEntry"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "logged by"
+      },
+      "range": {
+        "@id": "http://ethon.consensys.net/Account"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageObjectProperty"
+      }
+    },
+    {
+      "@id": "http://ethon.consensys.net/msgError",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "http://ethon.consensys.net/suggestedStringRepresentation": "msgError",
+      "ns:term_status": "unstable",
+      "comment": {
+        "@language": "en",
+        "@value": "A boolean value indicating whether the ContractMessage execution resulted in an error. A \"true\" value indicates an error."
+      },
+      "domain": {
+        "@id": "http://ethon.consensys.net/ContractMsg"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "Message error"
+      },
+      "range": {
+        "@id": "xsd:boolean"
+      },
+      "subPropertyOf": {
+        "@id": "http://ethon.consensys.net/MessageDataProperty"
+      }
+    },
+    {
+      "@id": "_:N50a2bb008c4645a5ac0b17d046bf295b",
+      "@type": "swrl:AtomList",
+      "rdf:first": {
+        "@id": "_:Nb8a5928c83b5435f842b9e10f62fb404"
+      },
+      "rdf:rest": {
+        "@list": []
+      }
+    }
+  ]
+}

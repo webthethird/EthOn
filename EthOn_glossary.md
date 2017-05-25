@@ -1,6 +1,6 @@
 # EthOn Glossary
 This glossary is compiled from the _rdfs:comment_ annotations of the EthOn ontology.
-Please also consider looking at the [specification of EthOn](http://ethon.consensys.net/EthOn_spec.html). 
+Please also consider looking at the [specification of EthOn](http://ethon.consensys.net/EthOn_spec.html).
 It is more detailed and includes class/property hierarchy information and restrictions.
 ## A
 ### Account
@@ -125,7 +125,7 @@ A light node is a participant in an Ethereum Network that does not completely do
 [`ethon:Network`](http://ethon.consensys.net/Network)   
 An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant.
 ### Ethereum Protocol Variant
-[`ethon:ProtocollVariant`](http://ethon.consensys.net/ProtocollVariant)   
+[`ethon:ProtocolVariant`](http://ethon.consensys.net/ProtocolVariant)   
 A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.
 ### External Actor
 [`ethon:ExternalActor`](http://ethon.consensys.net/ExternalActor)   
